@@ -1,0 +1,30 @@
+name: Build Manhuaren
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Grant execute permission
+        run: chmod +x gradlew
+
+      - name: Build Manhuaren
+        run: ./gradlew :src:zh:manhuaren:assembleRelease
+
+      - name: Upload JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: manhuaren-extension
+          path: src/zh/manhuaren/build/outputs/**/*.jar
