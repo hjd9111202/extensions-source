@@ -2,8 +2,6 @@ package eu.kanade.tachiyomi.extension.zh.manhuaren
 
 import android.content.SharedPreferences
 import android.os.Build
-import java.text.SimpleDateFormat
-import java.util.Locale
 import android.util.Base64
 import androidx.preference.EditTextPreference
 import androidx.preference.PreferenceScreen
